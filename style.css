@@ -1,0 +1,162 @@
+* {
+  background-color: white;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.page.active .image img,
+.page.active .image8 img {
+  animation: imageSlideFade 0.8s ease forwards;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+.image img {
+  height: 450px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.image8 {
+  display: flex;
+  justify-content: center;
+}
+.image8 img {
+  height: 550px;
+  width: fit-content;
+}
+
+.text {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+/* Container (optional, for spacing) */
+.btn {
+  display: inline-block;
+  position: relative;
+  margin-left: 1100px; /* increase → move right, decrease → move left */
+  margin-top: -100px; /* increase → move down, decrease → move up */
+}
+
+/* Button base style */
+.btn .btn1,
+.btn .btn2 {
+  position: relative;
+  padding: 10px 26px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  background: transparent;
+  border: 2px solid #222;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Arrow */
+.btn .btn1::after {
+  content: "→";
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.btn .btn2::after {
+  content: "→";
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover background animation */
+.btn .btn1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #222;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+.btn .btn2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #222;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
+/* Hover effects */
+.btn .btn1:hover {
+  color: #fff;
+  border-color: #222;
+  transform: translateY(-2px);
+}
+.btn .btn2:hover {
+  color: #fff;
+  border-color: #222;
+  transform: translateY(-2px);
+}
+
+.btn .btn1:hover::before {
+  transform: scaleX(1);
+}
+
+.btn .btn1:hover::after {
+  transform: translateX(6px);
+}
+/* Active click effect */
+.btn .btn1:active {
+  transform: scale(0.97);
+}
+.btn .btn2:hover::before {
+  transform: scaleX(1);
+}
+
+.btn .btn2:hover::after {
+  transform: translateX(6px);
+}
+
+/* Active click effect */
+.btn .btn2:active {
+  transform: scale(0.97);
+}
+
+.btn .btn2 {
+  position: relative;
+
+  /* 🔹 FIXED POSITION */
+  left: -1001px;
+  top: 0px;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+@keyframes imageSlideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
